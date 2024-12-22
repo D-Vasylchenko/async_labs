@@ -22,3 +22,16 @@ const promiseBasedFilter = (inputArray, predicateFunction, maxConcurrency = Infi
 
     return Promise.all(activePromises).then(() => resultsArray);
 };
+
+// test cases
+const numbersArray = [12, 15, 20, 25, 30, 35, 40, 45, 50];
+const isMultipleOfFive = async (num) => num % 5 === 0;
+
+promiseBasedFilter(numbersArray, isMultipleOfFive, 3).then((filteredResults) => {
+    console.log(filteredResults); //output: [15, 20, 25, 30, 35, 40, 45, 50]
+});
+
+const isGreaterThanTwenty = async (num) => num > 20;
+promiseBasedFilter(numbersArray, isGreaterThanTwenty, 2).then((filteredResults) => {
+    console.log(filteredResults); //output: [25, 30, 35, 40, 45, 50]
+});
