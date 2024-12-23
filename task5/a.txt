@@ -1,0 +1,2 @@
+This is the content of file A.
+Hello from file A!
